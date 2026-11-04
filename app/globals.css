@@ -1,0 +1,23 @@
+body {
+  background: #1b1426;
+  color: #f1ebf9;
+  min-height: 100vh;
+}
+
+/* Icon lịch và đồng hồ của ô date/time: đổi sang màu trắng cho hợp nền tối */
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+.tarot-card {
+  background: #251c35;
+  border: 1px solid #3d2f52;
+  border-radius: 12px;
+}
+
+.tarot-title {
+  color: #c9a7ff;
+}

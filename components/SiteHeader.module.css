@@ -1,0 +1,155 @@
+.bar {
+  background: linear-gradient(180deg, rgba(27, 20, 38, 0.92), rgba(27, 20, 38, 0.75)) !important;
+  backdrop-filter: blur(12px);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Đường gradient mờ ở mép dưới */
+.bar::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #c9a7ff, #e6c27a, transparent);
+  opacity: 0.6;
+}
+
+.scrolled {
+  background: rgba(27, 20, 38, 0.97) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 1040px;
+  min-height: 68px;
+  margin: 0 auto;
+  padding: 0 16px;
+  transition: min-height 0.3s ease;
+}
+
+.scrolled .toolbar {
+  min-height: 58px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.star {
+  color: #e6c27a;
+  font-size: 1.1rem;
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+.brandText {
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  background: linear-gradient(90deg, #e6c27a, #c9a7ff, #e6c27a);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 6s linear infinite;
+}
+
+.nav {
+  display: flex;
+  gap: 0.25rem;
+  padding: 0.25rem;
+  border: 1px solid #3d2f52;
+  border-radius: 999px;
+  background: rgba(37, 28, 53, 0.6);
+}
+
+.navItem {
+  padding: 0.45rem 1rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: #d8cde8;
+  font-size: 0.92rem;
+  transition: color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.navItem:hover {
+  color: #ffffff;
+  background: rgba(156, 110, 232, 0.18);
+}
+
+.navItem:focus-visible {
+  outline: 2px solid #c9a7ff;
+  outline-offset: 2px;
+}
+
+.navActive,
+.navActive:hover {
+  color: #1b1426;
+  font-weight: 600;
+  background: linear-gradient(90deg, #e6c27a, #c9a7ff);
+  box-shadow: 0 4px 14px rgba(156, 110, 232, 0.4);
+}
+
+.cta {
+  padding: 0.5rem 1.25rem !important;
+  border-radius: 999px !important;
+  background: linear-gradient(90deg, #9c6ee8, #c9a7ff) !important;
+  color: #1b1426 !important;
+  font-weight: 700 !important;
+  white-space: nowrap;
+  box-shadow: 0 0 18px rgba(156, 110, 232, 0.5) !important;
+  animation: glowPulse 2.8s ease-in-out infinite;
+  transition: transform 0.2s ease;
+}
+
+.cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 26px rgba(156, 110, 232, 0.8) !important;
+}
+
+@media (max-width: 576px) {
+  .navItem {
+    padding: 0.35rem 0.6rem;
+    font-size: 0.82rem;
+  }
+
+  .brandText {
+    font-size: 1.15rem;
+  }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.6; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
+
+@keyframes shimmer {
+  to { background-position: 200% center; }
+}
+
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 12px rgba(156, 110, 232, 0.35); }
+  50% { box-shadow: 0 0 24px rgba(156, 110, 232, 0.8); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .star,
+  .brandText,
+  .cta {
+    animation: none !important;
+  }
+}

@@ -1,0 +1,80 @@
+.panel {
+  animation: panelIn 0.6s ease-out both;
+}
+
+.deckStack {
+  position: relative;
+  width: 150px;
+  height: 220px;
+}
+
+.miniCard {
+  --r: 0deg;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #e6c27a;
+  border-radius: 14px;
+  background: linear-gradient(160deg, #4a3370, #1b1426);
+  color: #e6c27a;
+  font-size: 2rem;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45);
+  animation: deal 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  transition: transform 0.3s ease;
+}
+
+.miniCard:nth-child(1) { --r: -10deg; animation-delay: 0.05s; }
+.miniCard:nth-child(2) { --r: 0deg; animation-delay: 0.15s; }
+.miniCard:nth-child(3) { --r: 10deg; animation-delay: 0.25s; }
+
+.miniCard:hover {
+  transform: rotate(var(--r)) translateY(-8px) !important;
+}
+
+.deckName {
+  margin-bottom: 0.5rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #e6c27a;
+  animation: fadeUp 0.6s ease-out 0.1s both;
+}
+
+.summary {
+  font-weight: 600;
+  color: #c9a7ff;
+  animation: fadeUp 0.6s ease-out 0.2s both;
+}
+
+.description {
+  white-space: pre-line;
+  line-height: 1.75;
+  color: #d8cde8;
+  animation: fadeUp 0.6s ease-out 0.3s both;
+}
+
+@keyframes panelIn {
+  from { opacity: 0; transform: translateY(16px) scale(0.98); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes deal {
+  from { opacity: 0; transform: translateY(40px) rotate(0deg); }
+  to { opacity: 1; transform: rotate(var(--r)); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .panel,
+  .miniCard,
+  .deckName,
+  .summary,
+  .description {
+    animation: none !important;
+  }
+}

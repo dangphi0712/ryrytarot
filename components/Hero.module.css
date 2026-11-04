@@ -1,0 +1,152 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 88vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1rem 5rem;
+  text-align: center;
+  background: radial-gradient(ellipse at top, #3a2a5e 0%, #1b1426 60%, #120d1c 100%);
+}
+
+.stars {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.star {
+  position: absolute;
+  border-radius: 50%;
+  background: #fff;
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+.glow {
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  width: 520px;
+  height: 520px;
+  max-width: 120vw;
+  max-height: 120vw;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(201, 167, 255, 0.35), transparent 70%);
+  animation: pulse 6s ease-in-out infinite;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+  animation: fadeUp 1s ease-out both;
+}
+
+.cards {
+  position: relative;
+  height: 210px;
+  margin-bottom: 1.5rem;
+}
+
+.cardWrap {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 110px;
+  margin-left: -55px;
+  transform: translateX(var(--x)) rotate(var(--r));
+}
+
+.card {
+  animation: float 5s ease-in-out infinite;
+  animation-delay: var(--d);
+  filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.5));
+  transition: transform 0.4s ease;
+}
+
+.cardWrap:hover .card {
+  transform: translateY(-10px) scale(1.05);
+  animation-play-state: paused;
+}
+
+.card svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.eyebrow {
+  margin: 0 0 0.5rem;
+  letter-spacing: 0.25em;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: #c9a7ff;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(2.2rem, 6vw, 3.4rem);
+  font-weight: 700;
+  line-height: 1.15;
+  background: linear-gradient(90deg, #e6c27a, #c9a7ff, #e6c27a);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 6s linear infinite;
+}
+
+.subtitle {
+  margin: 1rem auto 0;
+  max-width: 520px;
+  color: #d8cde8;
+}
+
+.cta {
+  margin-top: 1.75rem !important;
+  padding: 0.75rem 2.25rem !important;
+  border-radius: 999px !important;
+  box-shadow: 0 0 24px rgba(156, 110, 232, 0.55);
+  animation: glowPulse 2.8s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.25); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes shimmer {
+  to { background-position: 200% center; }
+}
+
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 16px rgba(156, 110, 232, 0.4); }
+  50% { box-shadow: 0 0 32px rgba(156, 110, 232, 0.85); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .star,
+  .glow,
+  .inner,
+  .card,
+  .title,
+  .cta {
+    animation: none !important;
+  }
+}
